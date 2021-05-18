@@ -1,13 +1,7 @@
 import "./styles.css";
-import { useCallback, useState } from "react";
-import debounce from "lodash.debounce";
-function useDebounce(callback, delay) {
-  const debouncedFn = useCallback(
-    debounce((...args) => callback(...args), delay),
-    [delay] // will recreate if delay changes
-  );
-  return debouncedFn;
-}
+import { useState } from "react";
+import useDebounce from "./useDebounce";
+
 export default function App() {
   const [value, setValue] = useState("");
   const [dbValue, saveToDb] = useState(""); // would be an API call normally
